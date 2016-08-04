@@ -1,0 +1,39 @@
+_repo: The-Underdogs--A-Novel-of-the-Mexican-Revolution_549
+_version: 0.0.1
+alternative_title: Los de abajo. English
+contributor:
+  translator:
+    agent_name: Munguía, E. (Enrique)
+    aliases:
+    - Munguía, Enrique
+    - Munguia, E. (Enrique)
+    birthdate: 1903
+    gutenberg_agent_id: '283'
+    url: http://www.gutenberg.org/2009/agents/283
+creator:
+  author:
+    agent_name: Azuela, Mariano
+    aliases:
+    - Asuela, Mariano
+    - Gonzalez, Mariano Azuela
+    - González, Mariano Azuela
+    birthdate: 1873
+    deathdate: 1952
+    gutenberg_agent_id: '282'
+    url: http://www.gutenberg.org/2009/agents/282
+    wikipedia: http://en.wikipedia.org/wiki/Mariano_Azuela
+description: Translation of Los de Abajo
+gutenberg_issued: '1996-06-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '549'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Mexico -- History -- Revolution, 1910-1920 -- Fiction'
+- !lcc 'PQ'
+- GITenberg
+title: 'The Underdogs: A Novel of the Mexican Revolution'
+url: http://www.gutenberg.org/ebooks/549
