@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: 7XPyNUIAJrWYaRph/tt1OfOGWupmpNRe7gBO7hDtPRpo782OxOvfqiMGpCDt8JN/kg9Nv6dQZAfE+1stcge3PP0eYCoPkv209DODAkgTCo+OWeADRrh8EGq9je5Qg5/xx00vA0HIuPYA1xdgMjAvaWZaoJgbCRVMxXsd26zeCk0g6ZQ2XlFj+gdfJfoTnfzGBC3sWqw2mMMvPa5YzjKyQkFYQWHr59jwU0bDF+J/TyV8H4u1IkmzpEiw0yth0PQnEPFwh8pdeFU7ggUFAFX5Ba4uszNGMFiLsUCC4RgTC4l6mgxGf5rLsIb3HC34/oPE7yskDoZoBQF1Zge3q7CbbYdES6wE0ypM99Jrt3ll1rrS2aLuwCT/CgMk2QGsorRvYH2P8B9lDfo5f6eWiVPQFseK42HYon0wN0h5gsuru1pQJWywwddexjFtv7ReDW9nY/4lWImCjwZBVIVlm3G0fIdkrdJMXEZDZ/dzGfqLM9vshLAodtfhKH99/+KMPdnGby6zWm4jPnohnMJvyDRse8SsnfVL5wCcf6uOKHvaEkxWaCWpTZ4KALX1bP8PCSiIIrJQBz2/1lNGmPBBU+R3Pq6+YmJigpfaTOSQPzWVLwqTzcC/N4bOTrnz3/lk3gDJ1AdzXWReg1w3kEAgkyS2pWrfwT77kvSLf/tPfNDCdUs=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Underdogs--A-Novel-of-the-Mexican-Revolution_549
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
