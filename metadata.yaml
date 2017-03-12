@@ -1,5 +1,5 @@
 _repo: The-Underdogs--A-Novel-of-the-Mexican-Revolution_549
-_version: 0.1.0
+_version: 0.2.0
 alternative_title: Los de abajo. English
 contributor:
   translator:
@@ -10,6 +10,9 @@ contributor:
     birthdate: 1903
     gutenberg_agent_id: '283'
     url: http://www.gutenberg.org/2009/agents/283
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Azuela, Mariano
@@ -23,6 +26,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/282
     wikipedia: http://en.wikipedia.org/wiki/Mariano_Azuela
 description: Translation of Los de Abajo
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/549#The-Underdogs--A-Novel-of-the-Mexican-Revolution
 gutenberg_issued: '1996-06-01'
 gutenberg_type: Text
 identifiers:
